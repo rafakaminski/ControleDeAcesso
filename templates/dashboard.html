@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <p>Welcome, {{ current_user.username }}!</p>
+    <p>Sua permissão é de : {{ role }}</p>
+    {% if current_user.role == 'admin' %}
+        <a href="register.html">Registrar novo usuario</a><br>
+
+        <p>Como admin voce pode criar um novo usuario.</p>
+        <p>Como admin voce pode acessar relatórios.</p>
+        <p>Como admin voce pode acessar informações confidenciais.</p>
+    {% else %}
+        <p>Como user comum voce tem opções reduzidas.</p>
+    {% endif %}
+    
+    <a href="{{ url_for('logout') }}">Logout</a>
+    
+
+</body>
+</html>
